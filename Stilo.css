@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
+
+*{font-family:'Sedgwick Ave Display', cursive ;
+}
+
+body{
+    margin: 40px;
+    color: aliceblue;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+
+body>form>div>input{
+    font-size: 25px;
+}
+
+.topo{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: auto;
+}
+
+.Sorteio{
+    display: flex;
+    justify-content: space-around;
+    color: aliceblue;
+    font-size: 50px;
+}
+
+
+
+.botoes{
+    margin: 100px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.Resposta{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px;
+    margin-bottom: 80px;
+}
+
+.Contador{
+    display: flex;
+    justify-content: space-around;
+}
