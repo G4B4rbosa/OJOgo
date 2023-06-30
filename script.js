@@ -20,6 +20,7 @@ campoResposta.addEventListener('keyup',(Event)=>{
         Conferir();
         Sortear();
         console.log("bling");
+        document.getElementById('txtResposta').value = '';
     }
 });
 
