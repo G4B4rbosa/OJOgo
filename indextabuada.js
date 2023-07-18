@@ -8,6 +8,8 @@ var valor2;
 var total;
 var divAcertos;
 var divErros;
+var operador;
+var operadores = ["+", "-", "x", "÷"];
 
 divErros = document.querySelector('#divErros');
 divAcertos = document.querySelector('#divAcertos');
@@ -17,13 +19,54 @@ campoResposta = document.querySelector('#txtResposta');
 
 campoResposta.addEventListener('keyup', (Event) => {
     if (Event.key == "Enter") {
-        Conferir();
+        // conferirMultiplicacao();
+        // conferirDivisao();
+        // conferirAdicao();
+        // conferirSubtracao();
         Sortear();
+
+
+        conferirOperador(operacaoAleatoria);
+
+
+
+        var operacaoAleatoria = operadorAleatorio();
+
+        // if (erro == 5) {
+        //     window.location.href = "./gameover.html";
+        // }
+        // if (acerto >= 1) {
+        //     // criar função sortear divisão
+        //     operador = document.getElementById("operadores");
+        //     operador.textContent = "÷"
+        // }
         document.getElementById('txtResposta').value = '';
     }
 });
 
 desabilitarBotaoClicado();
+
+function conferirOperador(operacaoAleatoria) {
+    if (operadores[operacaoAleatoria] == "+") {
+        conferirAdicao();
+    } else if (operadores[operacaoAleatoria] == "-") {
+        conferirSubtracao();
+    } else if (operadores[operacaoAleatoria] == "÷") {
+        conferirDivisao();
+    } else if (operadores[operacaoAleatoria] == "x") {
+        conferirMultiplicacao();
+    }
+}
+
+function operadorAleatorio() {
+    var operacaoAleatoria = Math.floor(Math.random() * operadores.length);
+
+    operadores[operacaoAleatoria];
+    console.log(operadores[operacaoAleatoria]);
+    var operador = document.getElementById("operadores");
+    operador.textContent = operadores[operacaoAleatoria];
+    return operacaoAleatoria;
+}
 
 function Sortear() {
     valor1 = Math.floor((Math.random() * 10));
@@ -32,10 +75,40 @@ function Sortear() {
     campo2.value = valor2;
 }
 
-function Conferir() {
+function conferirSubtracao() {
+    Resposta = isNaN(campoResposta.value);
+    console.log(Resposta);
+    total = valor1 - valor2;
+    verificarResposta();
+
+}
+
+function conferirAdicao() {
+    Resposta = isNaN(campoResposta.value);
+    console.log(Resposta);
+    total = valor1 + valor2;
+    verificarResposta();
+
+}
+
+function conferirDivisao() {
+    Resposta = isNaN(campoResposta.value);
+    console.log(Resposta);
+    total = valor1 / valor2;
+    verificarResposta();
+
+}
+
+
+function conferirMultiplicacao() {
     Resposta = isNaN(campoResposta.value);
     console.log(Resposta);
     total = valor1 * valor2;
+    verificarResposta();
+
+}
+
+function verificarResposta() {
     if (Resposta == false && Resposta >= 0) {
         if (total == campoResposta.value) {
             acerto++;
@@ -46,7 +119,6 @@ function Conferir() {
         }
     }
 }
-
 
 function desabilitarBotaoClicado() {
     const botoes = document.querySelectorAll('.botao');
